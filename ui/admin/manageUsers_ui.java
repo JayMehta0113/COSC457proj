@@ -1,6 +1,7 @@
 package ui.admin;
 
 import java.awt.*;
+import java.awt.event.*;
 import javax.swing.*;
 
 //extends jframe to make a new window
@@ -70,6 +71,18 @@ public class manageUsers_ui extends JFrame {
  
 
 
+
+
+        //Action Listeners for buttons
+
+        //add user
+        addUserBtn.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                //open the add user dialog
+                new addUser_ui(manageUsers_ui.this);
+            }
+        });
 
 
         //Frame vis
