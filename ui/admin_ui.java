@@ -38,16 +38,25 @@ public class admin_ui extends JFrame {
 
         // Display Panel
         //Text box
-        JTextArea displayArea = new JTextArea();
-        //text area not editable
-        displayArea.setEditable(false);
-        //wrap text area with scroll
-        JScrollPane scrollPane = new JScrollPane(displayArea);
-        //attach the scroll pane with text
-        add(scrollPane, BorderLayout.CENTER);
+        JPanel displayPanel = new JPanel();
+        displayPanel.setLayout(new BorderLayout());
+
+        //Create a label asking for adminId
+        JLabel adminIdLabel = new JLabel("Admin ID:");
+        //text field for admin to put their id
+        JTextField adminIdField = new JTextField();
+        //put the label to the left side of the white box
+        displayPanel.add(adminIdLabel,BorderLayout.WEST);
+        //put the tf to the center of white box
+        displayPanel.add(adminIdField, BorderLayout.CENTER);
 
 
-        
+
+
+        //attach the display to center
+        add(displayPanel, BorderLayout.CENTER);
+
+        //frame vis
         setVisible(true);
     }
     
