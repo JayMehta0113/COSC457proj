@@ -35,23 +35,19 @@ public class admin_ui extends JFrame {
 
         //add to the left side of the frame
         add(buttonPanel, BorderLayout.WEST);
-
-        // Display Panel
-        //Text box
-        JPanel displayPanel = new JPanel();
-        displayPanel.setLayout(new BorderLayout());
-
-        //Create a label asking for adminId
+        // Use FlowLayout for the display area
+        JPanel displayPanel = new JPanel(new FlowLayout(FlowLayout.LEFT, 10, 10));
+        //Create adminid label
         JLabel adminIdLabel = new JLabel("Admin ID:");
-        //text field for admin to put their id
+        //Text Field for admin Id
         JTextField adminIdField = new JTextField();
-        //put the label to the left side of the white box
-        displayPanel.add(adminIdLabel,BorderLayout.WEST);
-        //put the tf to the center of white box
-        displayPanel.add(adminIdField, BorderLayout.CENTER);
+        //text field size
+        adminIdField.setPreferredSize(new Dimension(100, 30)); 
 
-
-
+        // Add label and text field to display panel
+        displayPanel.add(adminIdLabel);
+        displayPanel.add(adminIdField);
+  
 
         //attach the display to center
         add(displayPanel, BorderLayout.CENTER);
