@@ -32,8 +32,32 @@ public class manageUsers_ui extends JFrame {
 
 
 
+        //User table Panel
+        // Define the column names for the user table
+        String[] columnNames = {"User ID", "Name", "Role"};
+
+        // Define sample data for the user table (each row represents a user with ID, Name, and Role)
+        String[][] sampleData = {
+            {"1", "Alice", "Admin"},
+            {"2", "Bob", "Teacher"},
+            {"3", "Charlie", "Student"}
+        };
+
+        // Create a JTable with the sample data and column names
+        JTable userTable = new JTable(sampleData, columnNames);
+
+        // Create a JScrollPane to allow scrolling
+        JScrollPane tableScrollPane = new JScrollPane(userTable);
+
+        // Add the JScrollPane containing the table to the center of the frame using BorderLayout.CENTER
+        add(tableScrollPane, BorderLayout.CENTER);
 
 
 
+
+
+
+        //Frame vis
+        setVisible(true);
     }
 }
