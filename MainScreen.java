@@ -3,6 +3,8 @@ import javax.swing.*;
 //import java.awt.event.ActionEvent;
 //import java.awt.event.ActionListener;
 
+import ui.admin_ui;
+
 
 public class MainScreen {
     public static void main(String[] args) {
@@ -27,7 +29,8 @@ public class MainScreen {
 
         //action listener to buttons
         teacherButton.addActionListener(e -> openPlaceHolderUI("Teacher UI"));
-        adminButton.addActionListener(e -> openPlaceHolderUI("Admin UI"));
+        //open admin Ui
+        adminButton.addActionListener(e -> openAdminUI());
         guardianButton.addActionListener(e -> openPlaceHolderUI("Guardian UI"));
         studentButton.addActionListener(e -> openPlaceHolderUI("Student UI"));
 
@@ -53,5 +56,15 @@ public class MainScreen {
         placeholderFrame.add(label);
 
         placeholderFrame.setVisible(true);
+    }
+
+
+
+    //Method to open the Ui for admin
+    private static void openAdminUI(){
+        SwingUtilities.invokeLater(() -> {
+            new admin_ui();
+
+        });
     }
 }
