@@ -52,7 +52,22 @@ public class manageUsers_ui extends JFrame {
         // Add the JScrollPane containing the table to the center of the frame using BorderLayout.CENTER
         add(tableScrollPane, BorderLayout.CENTER);
 
-
+        
+        //Button Panel
+        
+        JPanel buttonPanel = new JPanel(new FlowLayout(FlowLayout.CENTER, 10, 10));
+        JButton addUserBtn = new JButton("Add User");
+        JButton editUserBtn = new JButton("Edit User");
+        JButton deleteUserBtn = new JButton("Delete User");
+ 
+        // Add buttons to panel
+        buttonPanel.add(addUserBtn);
+        buttonPanel.add(editUserBtn);
+        buttonPanel.add(deleteUserBtn);
+ 
+        // Add button panel to bottom
+        add(buttonPanel, BorderLayout.SOUTH);
+ 
 
 
 
