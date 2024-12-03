@@ -21,6 +21,15 @@ public class manageUsers_ui extends JFrame {
 
 
 
+        //Title
+
+        //Create  title text Manage Users
+        JLabel titleLabel = new JLabel("Manage Users", SwingConstants.CENTER);
+        //set the font to arial
+        titleLabel.setFont(new Font("Arial",Font.BOLD,20));
+        //add the title label to the top of the layout
+        add(titleLabel, BorderLayout.NORTH);
+
 
 
 
