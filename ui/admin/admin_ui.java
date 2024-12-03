@@ -4,6 +4,7 @@ package ui.admin;
 
 //package ui;
 import java.awt.*;
+import java.awt.event.*;
 import javax.swing.*;
 
 public class admin_ui extends JFrame {
@@ -51,6 +52,15 @@ public class admin_ui extends JFrame {
 
         //attach the display to center
         add(displayPanel, BorderLayout.CENTER);
+
+
+        //add action listener for manage users
+        manageUsersBtn.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                new manageUsers_ui().setVisible(true); // Open Manage Users UI
+            }
+        });
 
         //frame vis
         setVisible(true);
