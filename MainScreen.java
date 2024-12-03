@@ -1,30 +1,36 @@
 import java.awt.*;
 import javax.swing.*;
+//import java.awt.event.ActionEvent;
+//import java.awt.event.ActionListener;
+
 
 public class MainScreen {
     public static void main(String[] args) {
-        // Create the main frame
-        JFrame frame = new JFrame("School Database App");
+        //create the main frame
+        JFrame frame = new JFrame("School Database app");
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        frame.setSize(400, 300);
+        frame.setSize(400,300);
+        //4 buttons vertically
+        frame.setLayout(new GridLayout(4,1));
 
-        // Layout with 4 buttons vertically
-        frame.setLayout(new GridLayout(4, 1));
-
-        // Teacher button
+        //Teacher button
         JButton teacherButton = new JButton("Teacher UI");
-        // Admin button
+        //Admin button
         JButton adminButton = new JButton("Admin UI");
-        // Guardian button
+
+        //Guardian
         JButton guardianButton = new JButton("Guardian UI");
-        // Student button
+
+        //Student
         JButton studentButton = new JButton("Student UI");
 
-        // Action listeners for buttons
+
+        //action listener to buttons
         teacherButton.addActionListener(e -> openPlaceHolderUI("Teacher UI"));
         adminButton.addActionListener(e -> openPlaceHolderUI("Admin UI"));
         guardianButton.addActionListener(e -> openPlaceHolderUI("Guardian UI"));
         studentButton.addActionListener(e -> openPlaceHolderUI("Student UI"));
+
 
         // Add buttons to the frame
         frame.add(teacherButton);
@@ -32,11 +38,12 @@ public class MainScreen {
         frame.add(guardianButton);
         frame.add(studentButton);
 
-        // Make the frame visible
+
+         // Make the frame visible
         frame.setVisible(true);
     }
 
-    // Method to open a placeholder UI
+     // Method to open a placeholder UI
     private static void openPlaceHolderUI(String title) {
         JFrame placeholderFrame = new JFrame(title);
         placeholderFrame.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
