@@ -1,9 +1,6 @@
 import java.awt.*;
 import javax.swing.*;
-//import java.awt.event.ActionEvent;
-//import java.awt.event.ActionListener;
-
-import ui.admin_ui;
+import ui.admin.admin_ui;
 
 
 public class MainScreen {
