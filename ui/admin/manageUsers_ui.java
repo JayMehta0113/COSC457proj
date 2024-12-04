@@ -104,6 +104,27 @@ public class manageUsers_ui extends JFrame {
         });
 
 
+        //Delete User
+        
+        deleteUserBtn.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                int selectedRow = userTable.getSelectedRow();
+                if (selectedRow != -1) { // Check if a row is selected
+                    String userId = (String) userTable.getValueAt(selectedRow, 0);
+                    String name = (String) userTable.getValueAt(selectedRow, 1);
+                    String role = (String) userTable.getValueAt(selectedRow, 2);
+
+                // Open the Delete User confirmation dialog and pass the selected user's data
+                    new deleteUser_ui(manageUsers_ui.this, userId, name);
+                } else {
+                    // Show a warning message if no user is selected
+                    JOptionPane.showMessageDialog(manageUsers_ui.this, "Please select a user to delete.",
+                            "No User Selected", JOptionPane.WARNING_MESSAGE);
+        }
+    }
+});
+
         
         //Frame vis
         setVisible(true);

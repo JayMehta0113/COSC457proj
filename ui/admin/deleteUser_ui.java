@@ -3,7 +3,7 @@ package ui.admin;
 
 import java.awt.*;
 import javax.swing.*;
-
+import java.awt.event.*;
 
 public class deleteUser_ui extends JDialog {
     // Constructor that creates the delete user confirmation dialog
@@ -27,6 +27,21 @@ public class deleteUser_ui extends JDialog {
         buttonPanel.add(noButton);
         add(buttonPanel, BorderLayout.SOUTH);
 
+
+        //Actiion Listeners
+        //Yes
+        yesButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                // You can add database or table removal logic here
+                // In this example, we just show a confirmation message
+                JOptionPane.showMessageDialog(deleteUser_ui.this, 
+                        "User " + name + " has been deleted.", "User Deleted", JOptionPane.INFORMATION_MESSAGE);
+                
+                // Close the dialog after deletion
+                dispose();
+            }
+        });
 
 
 
