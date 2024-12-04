@@ -70,10 +70,21 @@ public class admin_ui extends JFrame {
             @Override
             public void actionPerformed(ActionEvent e) {
                 // Open the Create Course UI when the button is clicked
-                new createCourse_ui(); // Create and show the Create Course UI
+                new createCourse_ui().setVisible(true);// Create and show the Create Course UI
             }
         });
 
+
+
+        //add action listener for manage attendance
+        manageAttendanceBtn.addActionListener(new ActionListener(){
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                // Open the Create Course UI when the button is clicked
+                new manageAttendance_ui().setVisible(true); // Create and show the Create Course UI
+            }
+        });
+        
         //frame vis
         setVisible(true);
     }
