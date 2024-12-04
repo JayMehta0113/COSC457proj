@@ -85,6 +85,10 @@ public class admin_ui extends JFrame {
             }
         });
         
+
+
+
+        
         //frame vis
         setVisible(true);
     }

@@ -1,6 +1,7 @@
 package ui.admin;
 
 import java.awt.*;
+import java.awt.event.*;
 import javax.swing.*;
 
 public class manageAttendance_ui extends JFrame {
@@ -49,7 +50,16 @@ public class manageAttendance_ui extends JFrame {
         add(buttonPanel, BorderLayout.SOUTH);
 
 
+        //Action listeners
 
+        //action listener for mark attendance
+        markAttendanceBtn.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                // Open the Mark Attendance UI when the button is clicked
+                new markAttendance_ui().setVisible(true);
+            }
+        });
 
         //frame vis
         setVisible(true);
