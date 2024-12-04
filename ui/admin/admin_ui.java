@@ -87,7 +87,15 @@ public class admin_ui extends JFrame {
         
 
 
-
+         //add action listener for assignTeacher
+         assignTeachersBtn.addActionListener(new ActionListener(){
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                // Open the Create Course UI when the button is clicked
+                new assignTeachers_ui().setVisible(true); // Create and show the Create Course UI
+            }
+        });
+        
         
         //frame vis
         setVisible(true);
