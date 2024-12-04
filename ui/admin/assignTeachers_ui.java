@@ -43,6 +43,19 @@ public class assignTeachers_ui extends JFrame {
         add(assignPanel, BorderLayout.CENTER);
 
 
+         // Action listener for the Assign button
+         assignButton.addActionListener(e -> {
+            String courseId = courseField.getText().trim();
+            String teacherId = teacherField.getText().trim();
+            
+            if (courseId.isEmpty() || teacherId.isEmpty()) {
+                JOptionPane.showMessageDialog(this, "Please enter both Course ID and Teacher ID.", "Error", JOptionPane.ERROR_MESSAGE);
+            } else {
+                // Simulate the assignment action
+                JOptionPane.showMessageDialog(this, "Assigned Teacher ID " + teacherId + " to Course ID " + courseId, "Success", JOptionPane.INFORMATION_MESSAGE);
+                // You can add database or logic code to assign the teacher to the course here.
+            }
+        });
 
 
 
