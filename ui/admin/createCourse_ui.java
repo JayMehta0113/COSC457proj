@@ -95,6 +95,20 @@ public class createCourse_ui extends JFrame {
             }
         });
 
+
+
+
+        //Action listener for cancel button
+        cancelCourseBtn.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                 // Close the window
+                dispose();
+            }
+        });
+
+
+
         //Frame vis
         setVisible(true);
     }
