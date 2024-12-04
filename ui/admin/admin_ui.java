@@ -53,12 +53,24 @@ public class admin_ui extends JFrame {
         //attach the display to center
         add(displayPanel, BorderLayout.CENTER);
 
+        //action listeners
+
 
         //add action listener for manage users
         manageUsersBtn.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
                 new manageUsers_ui().setVisible(true); // Open Manage Users UI
+            }
+        });
+
+
+        //add action listener for create courses
+        createCoursesBtn.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                // Open the Create Course UI when the button is clicked
+                new createCourse_ui(); // Create and show the Create Course UI
             }
         });
 
