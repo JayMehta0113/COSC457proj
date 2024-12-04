@@ -103,6 +103,8 @@ public class manageUsers_ui extends JFrame {
             }
         });
 
+
+        
         //Frame vis
         setVisible(true);
     }

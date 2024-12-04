@@ -2,6 +2,8 @@ package ui.admin;
 
 
 import java.awt.*;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 import javax.swing.*;
 
 //declare tf for userid name and role
@@ -60,8 +62,36 @@ public editUser_ui(JFrame parent, String userId, String name, String role){
      add(cancelButton);
 
 
+     //Action Listeners
 
+     //save
+     saveButton.addActionListener(new ActionListener() {
+        @Override
+        public void actionPerformed(ActionEvent e){
 
+            //get the updated values from the name and role fields
+            String name = nameField.getText();
+            String role = roleField.getText();
+
+            //display a message that it updated
+            JOptionPane.showMessageDialog(editUser_ui.this, 
+                        "User Updated:\nID: " + originalUserId + "\nName: " + name + "\nRole: " + role,
+                        "User Updated", JOptionPane.INFORMATION_MESSAGE);
+
+            
+            //close the dialog after updating
+            dispose();
+        }
+     });
+
+    //Action listener for cancel
+    cancelButton.addActionListener(new ActionListener() {
+        @Override
+        public void actionPerformed(ActionEvent e) {
+            // Close the dialog 
+            dispose();
+        }
+    });
 
 
 
