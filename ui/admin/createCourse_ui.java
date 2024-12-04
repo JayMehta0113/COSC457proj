@@ -2,6 +2,7 @@ package ui.admin;
 
 import java.awt.*;
 import javax.swing.*;
+import java.awt.event.*;
 
 public class createCourse_ui extends JFrame {
     // Constructor to set up the "Create Course" page
@@ -64,7 +65,35 @@ public class createCourse_ui extends JFrame {
         // Add button panel to the bottom of the frame
         add(buttonPanel, BorderLayout.SOUTH);
 
+        //Action Listeners
 
+
+        //Action listener for save button
+        saveCourseBtn.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                // Get course details from input fields
+                String courseName = courseNameField.getText();
+                String courseCode = courseCodeField.getText();
+                String description = descriptionArea.getText();
+                String instructor = instructorField.getText();
+
+                // Simple validation: Ensure all fields are filled
+                if (courseName.isEmpty() || courseCode.isEmpty() || description.isEmpty() || instructor.isEmpty()) {
+                    JOptionPane.showMessageDialog(createCourse_ui.this,
+                            "Please fill all the fields before saving.",
+                            "Incomplete Form", JOptionPane.WARNING_MESSAGE);
+                } else {
+                    // Show success message (in a real app, you would save to a database)
+                    JOptionPane.showMessageDialog(createCourse_ui.this,
+                            "Course Created:\n" + "Name: " + courseName + "\nCode: " + courseCode + "\nInstructor: " + instructor,
+                            "Course Created", JOptionPane.INFORMATION_MESSAGE);
+
+                    // Close the window after saving
+                    dispose();
+                }
+            }
+        });
 
         //Frame vis
         setVisible(true);
