@@ -4,6 +4,7 @@ import java.awt.*;
 import java.awt.event.*;
 import javax.swing.*;
 
+
 public class manageAttendance_ui extends JFrame {
     public manageAttendance_ui() {
         // Set up the frame

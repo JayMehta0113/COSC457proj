@@ -20,18 +20,18 @@ public class admin_ui extends JFrame {
         add(label, BorderLayout.NORTH);
 
         //Buttons
-        JPanel buttonPanel = new JPanel(new GridLayout(5, 1, 10, 10));
+        JPanel buttonPanel = new JPanel(new GridLayout(4/*5 */, 1, 10, 10));
         JButton manageUsersBtn = new JButton("Manage Users");
         JButton createCoursesBtn = new JButton("Create Courses");
         JButton manageAttendanceBtn = new JButton("Manage Attendance");
-        JButton generateReportsBtn = new JButton("Generate Reports");
+       // JButton generateReportsBtn = new JButton("Generate Reports");
         JButton assignTeachersBtn = new JButton("Assign Teachers");
 
         //Add buttons to panel
         buttonPanel.add(manageUsersBtn);
         buttonPanel.add(createCoursesBtn);
         buttonPanel.add(manageAttendanceBtn);
-        buttonPanel.add(generateReportsBtn);
+       // buttonPanel.add(generateReportsBtn);
         buttonPanel.add(assignTeachersBtn);
 
         //add to the left side of the frame
