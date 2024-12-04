@@ -2,8 +2,8 @@ package ui.admin;
 
 
 import java.awt.*;
-import javax.swing.*;
 import java.awt.event.*;
+import javax.swing.*;
 
 public class deleteUser_ui extends JDialog {
     // Constructor that creates the delete user confirmation dialog
@@ -43,7 +43,14 @@ public class deleteUser_ui extends JDialog {
             }
         });
 
-
+        //No
+        noButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                // Close the dialog 
+                dispose();
+            }
+        });
 
         
 
