@@ -13,6 +13,10 @@ public class createCourse_ui extends JFrame {
 
     // Constructor to set up the "Create Course" page
     public createCourse_ui() {
+
+        //initalize connection
+        DC DC = new DC();
+
         // Set the title of the window
         setTitle("Create Course");
 
@@ -85,7 +89,7 @@ public class createCourse_ui extends JFrame {
 
         // Initialize the database connection
         try {
-            connection = DC.getConnection(); // Assuming DC is your database connection utility
+            connection = DC.getConnection(); 
         } catch (SQLException ex) {
             JOptionPane.showMessageDialog(this, "Error connecting to database: " + ex.getMessage(),
                     "Database Error", JOptionPane.ERROR_MESSAGE);
