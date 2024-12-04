@@ -1,6 +1,7 @@
 package ui.admin;
 
 import java.awt.*;
+import java.awt.event.*;
 import javax.swing.*;
 
 public class markAttendance_ui extends JFrame {
@@ -78,6 +79,35 @@ public class markAttendance_ui extends JFrame {
         add(buttonPanel, BorderLayout.SOUTH);
     
 
+
+        //Action listeners
+
+        // Action listener for Submit button
+        submitBtn.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                // Get values from the input fields
+                String studentId = studentIdField.getText();
+                String studentName = nameField.getText();
+                String attendanceStatus = (String) statusComboBox.getSelectedItem();
+
+                // Check if all fields are filled
+                if (studentId.isEmpty() || studentName.isEmpty()) {
+                    JOptionPane.showMessageDialog(markAttendance_ui.this, "Please fill in all fields.",
+                            "Incomplete Data", JOptionPane.WARNING_MESSAGE);
+                } else {
+                    // Here you can update the attendance status in the database or data structure
+                    JOptionPane.showMessageDialog(markAttendance_ui.this,
+                            "Attendance for " + studentName + " (" + studentId + ") marked as " + attendanceStatus,
+                            "Attendance Submitted", JOptionPane.INFORMATION_MESSAGE);
+                    
+                    // Optionally, clear the fields after submission
+                    studentIdField.setText("");
+                    nameField.setText("");
+                    statusComboBox.setSelectedIndex(0);
+                }
+            }
+        });
 
 
 
