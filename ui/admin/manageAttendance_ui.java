@@ -61,6 +61,16 @@ public class manageAttendance_ui extends JFrame {
             }
         });
 
+
+        //action listener for edit attendance
+        editAttendanceBtn.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                // Open the Mark Attendance UI when the button is clicked
+                new editAttendance_ui().setVisible(true);
+            }
+        });
+
         //frame vis
         setVisible(true);
     }
