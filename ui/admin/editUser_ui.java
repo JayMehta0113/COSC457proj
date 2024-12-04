@@ -30,6 +30,36 @@ public editUser_ui(JFrame parent, String userId, String name, String role){
     this.originalUserId = userId;
 
 
+     // Create and add a label for User ID field
+     add(new JLabel("User ID:"));
+     // Initialize the User ID field with the provided userId 
+     userIdField = new JTextField(userId);
+     userIdField.setEditable(false);
+     // Add the User ID field to the dialog
+     add(userIdField);
+
+     // Create and add a label for Name field
+     add(new JLabel("Name:"));
+     // Initialize the Name field with the provided name
+     nameField = new JTextField(name);
+     // Add the Name field to the dialog
+     add(nameField);
+
+     // Create and add a label for Role field
+     add(new JLabel("Role:"));
+     // Initialize the Role field with the provided role
+     roleField = new JTextField(role);
+     // Add the Role field to the dialog
+     add(roleField);
+
+     // Create and add a Save button to the dialog
+     JButton saveButton = new JButton("Save");
+     // Create and add a Cancel button to the dialog
+     JButton cancelButton = new JButton("Cancel");
+     add(saveButton);
+     add(cancelButton);
+
+
 
 
 

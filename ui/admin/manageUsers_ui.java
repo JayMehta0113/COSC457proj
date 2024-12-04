@@ -84,6 +84,24 @@ public class manageUsers_ui extends JFrame {
             }
         });
 
+        //Edit User
+        editUserBtn.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                int selectedRow = userTable.getSelectedRow();
+                if (selectedRow != -1) { // Check if a row is selected
+                    String userId = (String) userTable.getValueAt(selectedRow, 0);
+                    String name = (String) userTable.getValueAt(selectedRow, 1);
+                    String role = (String) userTable.getValueAt(selectedRow, 2);
+
+                    // Open the Edit User dialog and pass the selected user's data
+                    new editUser_ui(manageUsers_ui.this, userId, name, role);
+                } else {
+                    JOptionPane.showMessageDialog(manageUsers_ui.this, "Please select a user to edit.",
+                            "No User Selected", JOptionPane.WARNING_MESSAGE);
+                }
+            }
+        });
 
         //Frame vis
         setVisible(true);
