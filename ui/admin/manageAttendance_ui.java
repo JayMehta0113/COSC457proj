@@ -1,4 +1,4 @@
-package ui.admin;
+/* package ui.admin;
 
 import java.awt.*;
 import java.awt.event.*;
@@ -74,5 +74,101 @@ public class manageAttendance_ui extends JFrame {
 
         //frame vis
         setVisible(true);
+    }
+}*/
+
+package ui.admin;
+
+import java.awt.*;
+import java.sql.*;
+import javax.swing.*;
+import javax.swing.table.DefaultTableModel;
+
+public class manageAttendance_ui extends JFrame {
+
+    private JTable attendanceTable;
+    private DefaultTableModel tableModel;
+    private Connection connection;
+
+    public manageAttendance_ui() {
+        // Set up the frame
+        setTitle("Manage Attendance");
+        setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
+        setSize(600, 400);
+        setLayout(new BorderLayout());
+
+        // Title label
+        JLabel titleLabel = new JLabel("Manage Attendance", SwingConstants.CENTER);
+        titleLabel.setFont(new Font("Arial", Font.BOLD, 20));
+        add(titleLabel, BorderLayout.NORTH);
+
+        // Define column names
+        String[] columnNames = {"Student ID", "First Name", "Last Name", "Attendance Status"};
+
+        // Initialize table model and table
+        tableModel = new DefaultTableModel(columnNames, 0);
+        attendanceTable = new JTable(tableModel);
+
+        // Add the table with scrolling
+        JScrollPane tableScrollPane = new JScrollPane(attendanceTable);
+        add(tableScrollPane, BorderLayout.CENTER);
+
+        // Panel for buttons
+        JPanel buttonPanel = new JPanel(new FlowLayout(FlowLayout.CENTER, 10, 10));
+        JButton markAttendanceBtn = new JButton("Mark Attendance");
+        JButton editAttendanceBtn = new JButton("Edit Attendance");
+        JButton generateReportBtn = new JButton("Generate Report");
+
+        // Add buttons to the button panel
+        buttonPanel.add(markAttendanceBtn);
+        buttonPanel.add(editAttendanceBtn);
+        buttonPanel.add(generateReportBtn);
+
+        // Add button panel to the bottom of the frame
+        add(buttonPanel, BorderLayout.SOUTH);
+
+        // Initialize the database connection
+        try {
+            connection = DC.getConnection();
+        } catch (SQLException ex) {
+            JOptionPane.showMessageDialog(this, "Error connecting to database: " + ex.getMessage(),
+                    "Database Error", JOptionPane.ERROR_MESSAGE);
+            dispose();
+            return; // Exit if connection fails
+        }
+
+        // Load attendance data from the database
+        loadAttendanceData();
+
+        // Action listeners
+        markAttendanceBtn.addActionListener(e -> new markAttendance_ui().setVisible(true));
+        editAttendanceBtn.addActionListener(e -> new editAttendance_ui().setVisible(true));
+
+        // Frame visibility
+        setVisible(true);
+    }
+
+    private void loadAttendanceData() {
+        String query = "SELECT student_id, first_name, last_name, attendance_status FROM Attendance";
+
+        try (Statement stmt = connection.createStatement();
+             ResultSet rs = stmt.executeQuery(query)) {
+
+            // Clear existing rows in the table model
+            tableModel.setRowCount(0);
+
+            // Iterate through the result set and add rows to the table
+            while (rs.next()) {
+                String studentId = rs.getString("student_id");
+                String firstName = rs.getString("first_name");
+                String lastName = rs.getString("last_name");
+                String attendanceStatus = rs.getString("attendance_status");
+                tableModel.addRow(new Object[]{studentId, firstName, lastName, attendanceStatus});
+            }
+
+        } catch (SQLException e) {
+            JOptionPane.showMessageDialog(this, "Error loading attendance data: " + e.getMessage(),
+                    "Database Error", JOptionPane.ERROR_MESSAGE);
+        }
     }
 }
